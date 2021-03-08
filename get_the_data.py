@@ -10,7 +10,7 @@ import csv
 
 sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
-pl_id = 'spotify:playlist:37i9dQZEVXbNG2KDcFcKOF'
+pl_id = 'spotify:playlist:31ymdYCITDnZRtkKzP3Itp'
 offset = 0
 
 song_urls = []
