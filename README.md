@@ -31,6 +31,8 @@ We can also use the individual precisions to help determine issues in our model,
 
 When comparing some features of our genres we can already see some key differences between them that will help our model to classify them. For instance we can look at some results found during our preliminary testing that show the clustering of genres very clearly, along with results taken from our 15 genre dataset for comparison:
 
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/dancevsenergyt.PNG?raw=true)
+
 Here we can see obvious clustering between three different genres as we had suspected. Each of these clusters make sense when looking at the music itself, with our classic jazz songs being generally low energy songs and modern hip-hop being a type of high-energy dance music. The 15 genre dataset is harder to understand, but the general clustering of colors remains true, although there is clearly more overlap here, so it may not be as useful during classification.
 
 We see some clustering here as well along with some overlap between rock and hip-hop, which is expected as some high-energy rock music can sound very similar to hip-hop. Jazz is still very low energy in comparison and has a very low loudness. This loudness value is referring to the decibels Spotify had to change the master recording of a song to normalize the volumes across the platform. In this case it makes sense that our classic jazz music would have such a low loudness as many master recordings made at the time were using lower-quality recording equipment compared to modern standards, leading to an overall drop in loudness. As with the previous example we see that this holds true for the 15 genre dataset as well.
