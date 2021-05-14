@@ -167,8 +167,6 @@ Overall we were happy with these results, however, we believe some of the models
 
 ## Code and Datasets
 
-https://github.com/JohnUrbani/SpotifyMusicRecommender
-
 Our Python scripts will not run without a private key provided by Spotify. As we already have our datasets created, they can be accessed and used without the private key, with all of our training and visualizations made in Jupyter Notebook files. Our training is laid out similarly to our homeworks, however we make an attempt to train several models with different methods, including classifiers not used in class and several neural networks, each displaying its accuracy and other statistics for each dataset.
 
 Our process starts with gathering several Spotify playlists containing songs of a specific genre and adding their ID along with the name of the genre to our get_data_and_label.py script. This will gather the metadata for every song in the given playlists and add them, along with their target genre, to data_categorized.csv. In our Jupyter Notebook we finish cleaning the data, removing excess features that will not be used during training, such as the ID of the song or the name of the artist. To make this process simpler for collecting 3 different datasets we have separate python scripts and csv files for each.
