@@ -32,12 +32,22 @@ We can also use the individual precisions to help determine issues in our model,
 When comparing some features of our genres we can already see some key differences between them that will help our model to classify them. For instance we can look at some results found during our preliminary testing that show the clustering of genres very clearly, along with results taken from our 15 genre dataset for comparison:
 
 ![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/dancevsenergyt.PNG?raw=true)
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/comparisons4.png?raw=true)
 
 Here we can see obvious clustering between three different genres as we had suspected. Each of these clusters make sense when looking at the music itself, with our classic jazz songs being generally low energy songs and modern hip-hop being a type of high-energy dance music. The 15 genre dataset is harder to understand, but the general clustering of colors remains true, although there is clearly more overlap here, so it may not be as useful during classification.
 
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/energyvsloud.PNG?raw=true)
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/comparisons1.png?raw=true)
+
 We see some clustering here as well along with some overlap between rock and hip-hop, which is expected as some high-energy rock music can sound very similar to hip-hop. Jazz is still very low energy in comparison and has a very low loudness. This loudness value is referring to the decibels Spotify had to change the master recording of a song to normalize the volumes across the platform. In this case it makes sense that our classic jazz music would have such a low loudness as many master recordings made at the time were using lower-quality recording equipment compared to modern standards, leading to an overall drop in loudness. As with the previous example we see that this holds true for the 15 genre dataset as well.
 
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/happyvsacoustic.PNG?raw=true)
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/comparisons3.png?raw=true)
+
 Valence here is a measurement of the cheeriness or happiness of a song. Rock is once again all over the board, although this was expected as it is a very broad genre that makes use of both acoustic and non-acoustic instruments and has both happy and not happy songs. Electronic instruments are not heavily used in classic jazz so the high acoustic value was expected. Similarly hip-hop makes almost no use of acoustic instruments, preferring modern electronic sounds instead. Hip-hop also makes very few sad songs, unlike jazz where this is much more common, explaining the difference in valence values. The 15 genre dataset is much less clear here, although we do still see some color clustering, especially near the very high and low ends of the acoustic feature.
+
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/speechvsinstruments.PNG?raw=true)
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/comparisons2.png?raw=true)
 
 Here we can see a very distinct difference between these music genres, that being jazz’s preference for instruments over vocals, or speechiness. Rock is in a similar place here, although having some songs with higher vocal scores. Hip-hop however is very different, having almost no songs that don’t contain some vocals.
 
