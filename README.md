@@ -63,31 +63,38 @@ This dataset consisted of the following genres, labeled by number:
 8 : folk, 9 : jazz, 10 : classical, 11 : soul
 12 : punk, 13 : metal, 14 : reggae
 
-   Random Forest Classification
+#### Random Forest Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/randomForestReg.png?raw=true)
 
 Our random forest classifier was highly successful with an accuracy of 56%, with the lowest precision being 19% for one genre, but having high precisions for most genres. This accuracy far exceeds our random-guessing accuracy of 6%, making it clear that these genres can be differentiated using their metadata, although we see some genres struggling, being mapped into the wrong genre. This is an issue that we continued to see with all of our classifiers for this dataset and was expected as many songs would realistically fit into multiple genres and may even give humans trouble deciding where they should be grouped. Overall we expect some songs to fall very close to the edge of multiple classes as they may share many features with songs from many genres.
 
-            SVM Classification
+#### SVM Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/svcReg.png?raw=true)
 
 SVC classification appears to run into the same issues as the random forest, however, it has less success, only giving us an accuracy of 53%. While this is still highly successful, we see about the same precision levels, with no class having a precision below 20% but only a few classes above 60% precision.
 
-Quadratic Discriminant Analysis
+#### Quadratic Discriminant Analysis
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/quadReg.png?raw=true)
 
-	This quadratic discriminant analysis was not as successful as the random forest classifier, giving us a lower accuracy of 45% and having many genres with low precision values.
+This quadratic discriminant analysis was not as successful as the random forest classifier, giving us a lower accuracy of 45% and having many genres with low precision values.
 
-Adaboost, using Random Forest base estimator
+#### Adaboost, using Random Forest base estimator
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/adaboost.png?raw=true)
 
 As expected, Adaboost improved on our original random forest model, bringing us from 56% accuracy all the way to 60% accuracy. While this classifier still suffers from many of the same problems as the others, this was our most successful model for this dataset.
 
-	      1 Hidden Layer, Adam Optimizer
+#### 1 Hidden Layer, Adam Optimizer
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/1hiddenLayerAdam.png?raw=true)
 
 Moving to our neural networks, our 1 hidden layer model showed results very similar to our traditional classifiers, giving us an accuracy of 53.6% on our testing data after training. We can see the accuracy of the training and testing sets are very similar throughout the process so we did not experience much in terms of overfitting, but we do not expect to see significantly improved results by training the model for more time. The Adam optimizer used for this and the following model are using a learning rate of 0.00025 and a decay of 0.95. As mentioned previously this model’s hidden layer has 256 nodes. We also used a batch size of 16 with 50 epochs for these three networks.
 
- 	      2 Hidden Layers, Adam Optimizer
+#### 2 Hidden Layers, Adam Optimizer
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/2hiddenLayersAdam.png?raw=true)
 
 Our 2 hidden layer model came out almost identically to the 1 layer model, although they both used nonlinear activation functions. The final accuracy for this model on our testing set was 54.3%, a slight improvement over the previous model, although still not an improvement over the Adaboost classifier. As mentioned previously this model has one hidden layer with 256 nodes and a second with 512 nodes.
 
- 	      2 Hidden Layers, SGD Optimizer
+#### 2 Hidden Layers, SGD Optimizer
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/many_genres/2hiddenLayersSGD.png?raw=true)
 
 In this final neural network we tried to use a different optimizer, however, this appears to have only hurt our results, giving us a testing accuracy of only 50.3%, with clear differences between the training and testing accuracy as the model continues to train. As such we decided to only use our 2 hidden layer Adam optimizer model for our other datasets as it was the most successful of the networks and did not have this accuracy issue.
 
@@ -98,22 +105,28 @@ This dataset consisted of the following genres, labeled by number:
 
 All of these genres share many traits with each other, including instruments used, amount of vocals, and energy of the songs. As such we tried to see if our model could differentiate between these very similar music genres if given enough data.
 
-  Random Forest Classification
+#### Random Forest Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/specific_genres/randomforest.png?raw=true)
 
 In this dataset we hoped to significantly beat the random guess accuracy of 33%. In our first test we tried a random forest classifier with 100 trees, giving us an accuracy of 82%, which shows that we can differentiate between similar genres as long as we have enough data to work with, which is not shown as well in the more general 15 genre dataset. Our precisions were all over 73%, but we can still see some struggling between the blues and soul genres (labels 1 and 2) which may be caused by a bias in our training data that included more jazz songs (label 0) than the other two.
-           SVM Classification
+
+#### SVM Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/specific_genres/svc.png?raw=true)
 
 Similar to our previous dataset, our SVC is less successful than our random forest, only giving us an accuracy of 78%. We can see many more mistakes between labels 1 and 2 as well, with the lowest precision being 70% for label 1.
 
-Quadratic Discriminant Analysis
+#### Quadratic Discriminant Analysis
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/specific_genres/quaddiscriminant.png?raw=true)
 
 Quadratic discriminant analysis suffers even more with the similar features found between these genres, giving us an accuracy of 74% and a lowest precision of 64% for label 1.
 
-Adaboost, using Random Forest base estimator
+#### Adaboost, using Random Forest base estimator
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/specific_genres/adaboost.png?raw=true)
 
 Adaboost found very good success here, as it did in the previous dataset, improving our accuracy from 82% to 84%. This increase was not very drastic and we did not see a large improvement between labels 1 and 2.
 
- 	      2 Hidden Layers, Adam Optimizer
+#### 2 Hidden Layers, Adam Optimizer
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/specific_genres/2layers.png?raw=true)
 
 Our best neural network, running through 10 epochs with a batch size of 16, a learning rate of 0.00025, and a decay of 0.95, only ever achieved a test accuracy of 80%. While this is a good result, we once again find better results in our Adaboost models. We believe that this may be due to the simplicity of our datasets, only comparing 13 features, all of which are flat, meaning we likely do not require the complexity offered by a neural network.
 
@@ -121,23 +134,28 @@ Our best neural network, running through 10 epochs with a batch size of 16, a le
 
 This dataset consisted of several large genre-diverse user-curated playlists. As many of these playlists contain songs from the same genres, we hope to find differences in each user’s music preferences that helps to differentiate these playlists The dataset contains five user-created playlists, labeled by number.
 
-   Random Forest Classification
+#### Random Forest Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/personal_playlists/randomforest.png?raw=true)
 
 With five different playlists we had hoped to beat a random guess accuracy of 20%. As we can see our random forest classifier easily beats this with an accuracy of 59% and fairly high precisions with the exception of playlist 4. Overall we are happy with these results and expected higher amounts of overlap between playlists, but only playlist 4 had significant trouble, likely caused by a low amount of training data. This shows us that we will be able to classify music that is not obviously similar to each other, with these playlists having a wide variety of genres inside of them.
 
-            SVM Classification
+#### SVM Classification
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/personal_playlists/svc.png?raw=true)
 
 Our SVC gave us a similar accuracy of 59%, although with slightly lower precisions overall, which was expected based on the results of the previous datasets.
 
-Quadratic Discriminant Analysis
+#### Quadratic Discriminant Analysis
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/personal_playlists/quad.png?raw=true)
 
 Similar to the previous datasets, quadratic discrimination struggled to differentiate the songs compared to the other models, giving us only 57% accuracy. However, the difference between this and other models is not very large.
 
-Adaboost, using Random Forest base estimator
+#### Adaboost, using Random Forest base estimator
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/personal_playlists/adaboost.png?raw=true)
 
 Once again Adaboost gave us the highest accuracy among traditional classifiers, reaching 60%. This improvement is once again very small, but will make a good comparison for our neural network.
 
- 	      2 Hidden Layers, Adam Optimizer
+#### 2 Hidden Layers, Adam Optimizer
+![alt text](https://github.com/JohnUrbani/SpotifyMusicRecommender/blob/main/graphs/personal_playlists/2layers.png?raw=true)
 
 Our neural network gave us a high accuracy of 65.2%. This was a huge improvement compared to the other, traditional, machine learning models and is the first time we’ve seen the neural network surpassing Adaboost. We believe this is due to the added complexity of this dataset as there are fewer clusters between the features of each playlist due to their genre diversity, giving the neural network an edge as it could better find connections that the traditional classifiers may have missed.
 
