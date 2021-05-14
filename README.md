@@ -5,13 +5,20 @@
 ## Problem Definition and Algorithm
 ### Task Definition
 In our project we have taken data directly from Spotify using their web API. By doing this we are able to read in individual songs and playlists along with metadata features for each track. Our output should tell us with high accuracy which songs fit well together, such as being in the same genre of music. As we will be able to categorize any individual song, this could be used by many music streaming services to help their users listen to music they haven’t heard before, keeping them engaged and coming back to their platform for much longer than a traditional recommendation system would.
+
 ### Datasets
 We created our own datasets through the Spotify web API, reading in hundreds of songs automatically using Python, then labelling songs by genre manually to check the accuracy of our model. The Spotify API is available for anyone to use but requires an account and verification from Spotify before use. We gathered our songs by looking at user-made playlists for different genres of music then labelling each song in this playlist as part of that category so we have less manual labelling to perform. To keep our dataset fair we tried to use a similar number of tracks for each genre so it will not overfit to any one type of music. We do not need any special hardware to process our data, however we do require an internet connection to access the web API when collecting data for the first time.
+
 We have created a total of three different datasets, one containing 15 different genres of music to show the generality that can be achieved with machine learning, one with a few genres that are very similar sounding, with a large number of songs from each, and lastly one with music curated by a user alongside many songs that they do not enjoy to show possibilities outside of genre classification. The Spotify API gives us the following metadata features for each track:
+
 [beats_per_minute, acousticness, artist, danceability, duration_ms, energy, explicit,
 instrumentalness, key, liveness, loudness, valence, popularity]
+
 ### Algorithm Definition
 During our preliminary testing we tested models on two different datasets, the first containing 3 genres of music with 100 songs each and the second containing 8 genres with 85-100 songs each. We then ran these two datasets through several classifiers to determine which may give us a good baseline to work with. Some of the models tested included the Random Forest, AdaBoost, MLP, KNeighbors, and Decision Tree Classifiers. We found high success with Random Forest, AdaBoost, Quadratic Discriminant Analysis, and SVC (SVM Classifier), so we decided to use these classifiers to train our models to get a baseline before using neural networks.
+
 During our testing we also determined that the ‘time_signature’ feature was detrimental to our training, especially after being regulated from 0 to 1, so this was removed before testing. Regularization was performed on all other features to aid the classifiers. The hyperparameters for each of the classifiers were also tweaked to better fit the dataset being tested, with Random Forest generally being kept at 100 trees. 
+
 Afterwards we tested all of our datasets on three different neural networks, network 1 included 1 hidden layer, with 256 nodes, and used an Adam optimizer, network 2 used 2 hidden layers, one with 256 nodes and the other with 512 nodes, with an Adam optimizer, and finally network 3 used 2 hidden layers, also with 256 and 512 nodes, with a SGD optimizer. We determined that these networks would suffice to give us a good range of results for our datasets by testing them rigorously with many different hyperparameters, some of which were changed to better fit the different datasets.
+
 Each of these neural networks included only densely connected layers using relu activation, with the exception of the output layer which used softmax activation. We felt that testing different optimizers and the number of nonlinear layers would help us understand our results better.
